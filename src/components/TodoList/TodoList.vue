@@ -49,31 +49,31 @@
 </template>
 
 <script>
-export default {
-  name: "TodoList",
-  data() {
-    return {
-      newTaskTitle: null,
-    };
-  },
-  methods: {
-    addTask() {
-      if (this.newTaskTitle == null) {
-        return;
-      } else {
-        this.$store.commit("addTask", this.newTaskTitle);
-      }
-      this.newTaskTitle = null;
+  export default {
+    name: "TodoList",
+    data() {
+      return {
+        newTaskTitle: null,
+      };
     },
-  },
-};
+    methods: {
+      addTask() {
+        if (this.newTaskTitle == null) {
+          return;
+        } else {
+          this.$store.commit("addTask", this.newTaskTitle);
+        }
+        this.newTaskTitle = null;
+      },
+    },
+  };
 </script>
 
 <style lang="sass">
-.no-tasks
-    position: absolute
-    left: 50%
-    top: 50%
-    transform: translate(-50%, -50%)
-    opacity: 0.5
+  .no-tasks
+      position: absolute
+      left: 50%
+      top: 50%
+      transform: translate(-50%, -50%)
+      opacity: 0.5
 </style>

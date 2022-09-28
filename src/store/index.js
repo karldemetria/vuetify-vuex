@@ -1,11 +1,13 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import admin from "./admin";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
     tasks: [],
+    admin,
   },
   getters: {},
   mutations: {
@@ -24,7 +26,18 @@ export default new Vuex.Store({
     deleteTask(state, id) {
       state.tasks = state.tasks.filter((task) => task.id !== id);
     },
+    userList(state) {
+      for (let i = 0; i < state.admin.users.length; i++) {
+        !state.admin.users[i]["status"]
+          ? (state.admin.users[i]["status"] = "Inactive")
+          : (state.admin.users[i]["status"] = "Active");
+      }
+    },
   },
-  actions: {},
+  actions: {
+    userStatus({ commit }) {
+      commit("userList");
+    },
+  },
   modules: {},
 });

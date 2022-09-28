@@ -1,38 +1,60 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import Vue from "vue";
+import VueRouter from "vue-router";
+import HomeView from "../views/HomeView.vue";
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
-    name: 'home',
+    path: "/",
+    name: "home",
     meta: {
-      title: 'Dashboard',
+      title: "Dashboard",
     },
-    component: HomeView
+    component: HomeView,
   },
   {
-    path: '/about',
-    name: 'about',
+    path: "/about",
+    name: "about",
     meta: {
-      title: 'About',
+      title: "About",
     },
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
   },
   {
-    path: '/todo-list',
-    name: 'TodoList',
+    path: "/todo-list",
+    name: "TodoList",
     meta: {
-      title: 'Todo List',
+      title: "Todo List",
     },
-    component: () => import(/* webpackChunkName: "about" */ '../components/TodoList/TodoList.vue')
-  }
-]
+    component: () =>
+      import(
+        /* webpackChunkName: "about" */ "../components/TodoList/TodoList.vue"
+      ),
+  },
+  {
+    path: "/users",
+    name: "Users",
+    meta: {
+      title: "Users",
+    },
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/Users/UserList"),
+  },
+  {
+    path: "/rbac",
+    name: "Rbac",
+    meta: {
+      title: "RBAC",
+    },
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/Construction"),
+  },
+];
 
 const router = new VueRouter({
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;
